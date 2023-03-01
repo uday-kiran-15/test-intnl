@@ -1,0 +1,39 @@
+<div class="container-fluid py-3">
+    <h1 class="header">{{data?.title}}</h1>
+    <!-- <select name="" id="" (change)=changeLanguage($event)>
+      <option>{{data?.selectLanguage}}</option>
+      <option [value]="lang.value" *ngFor = "let lang of languages">{{lang.lan}}</option>
+    </select> -->
+    <form  style="border:1px solid rgb(17, 17, 17)" novalidate (ngSubmit)="onSubmit()" #f = "ngForm">
+      <div class="container">
+        <h1>{{data?.signUp }}</h1>
+        <p>{{data?.signUpMessage}}</p>
+    
+        <label for="email"><b>{{data?.email}}</b></label>
+        <input type="text" [placeholder]="data?.emailPlaceholder" name="email" [(ngModel)]="email"  email #mail="ngModel"   required>
+        <div class="errors">
+          <small  *ngIf = "mail.touched && mail.invalid"> {{data?.emailError.error1}}</small>
+        </div>
+    
+        <label for="psw"><b>{{data?.password}}</b></label>
+        <input type="password" [placeholder]="data?.passwordPlaceholder" name="password" [(ngModel)]="password" minlength="8" #pswd="ngModel" required>
+        <div class="errors">
+          <small  *ngIf = "pswd.touched && pswd.invalid"> {{data?.passwordError.error1}}</small>
+        </div>
+  
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> {{data?.rememberMe}}
+        </label>
+    
+    
+        <div class="clearfix">
+          <a href="/" class="cancelbtn" (click) = "clearContent()">{{data?.cancel}}</a>
+          <button type="submit" class="signupbtn"  >{{data?.signUp}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+   
+    
+  
