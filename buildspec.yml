@@ -13,13 +13,12 @@ phases:
   # pre_build:
     commands:
       - echo installing dependencies...
-      - npm i npm
       - npm i -g @angular/cli@8.3.25
-      - npm install
+      - npm i npm
   build:
     commands:
       # - echo testing...
-      # - echo building...
+      - echo building...
       - ng build --prod
 artifacts:
   files:
