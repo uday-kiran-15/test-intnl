@@ -4,7 +4,7 @@ env:
     variables:
         CACHE_CONTROLS: "86400"
         S3_BUCKET: "{{s3_bucket_url}}"
-        BUILD_FOLDER: "dist/$BUCKET_NAME"
+        BUILD_FOLDER: "dist/test-intnl"
 
 phases:
   install:
@@ -34,4 +34,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist/$BUCKET_NAME*
+  base-directory: dist/test-intnl*
