@@ -27,9 +27,9 @@ phases:
     commands:
       # - echo testing...
       - echo building...
-      - ng build 
+      - ng build --configuration = $stage
       - echo removing bucket objects
-      - aws s3 rm s3://test-intnl --recursive
+      - aws s3 rm s3://$S3_BUCKET --recursive
 artifacts:
   files:
     - "**/*"
