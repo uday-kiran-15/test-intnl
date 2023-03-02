@@ -7,9 +7,9 @@ env:
         BUILD_FOLDER: "dist"
 
 phases:
-  install:
-    runtime-versions:
-        nodejs: 14
+  # install:
+  #   runtime-versions:
+  #       nodejs: 14
   #   commands:
   #     - echo installing nodejs...
   #     # - curl -sL https://deb.nodesource.com/setup_12.x | bash -
