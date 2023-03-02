@@ -1,9 +1,9 @@
 <div class="container-fluid py-3">
     <h1 class="header">{{data?.title}}</h1>
-    <!-- <select name="" id="" (change)=changeLanguage($event)>
+    <select name="" id="" (change)=changeLanguage($event)>
       <option>{{data?.selectLanguage}}</option>
       <option [value]="lang.value" *ngFor = "let lang of languages">{{lang.lan}}</option>
-    </select> -->
+    </select>
     <form  style="border:1px solid rgb(17, 17, 17)" novalidate (ngSubmit)="onSubmit()" #f = "ngForm">
       <div class="container">
         <h1>{{data?.signUp }}</h1>
