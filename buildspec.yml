@@ -29,7 +29,7 @@ phases:
       - echo building...
       - ng build 
       - echo removing bucket objects
-      - aws s3 rm s3://test-intnl --recursive
+      - aws s3 rm s3://test-intnl/ --recursive
 artifacts:
   files:
     - "**/*"
