@@ -4,7 +4,7 @@ env:
     variables:
         CACHE_CONTROLS: "86400"
         S3_BUCKET: "{{s3_bucket_url}}"
-        BUILD_FOLDER: "dist/test-intnl"
+        BUILD_FOLDER: "dist/$BUCKET_NAME"
 
 phases:
   install:
@@ -29,9 +29,9 @@ phases:
       - echo building...
       - ng build 
       - echo removing bucket objects
-      - aws s3 rm s3://test-intnl --recursive
+      - aws s3 rm s3://$S3_BUCKET --recursive
 artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist/test-intnl*
+  base-directory: dist/$BUCKET_NAME*
