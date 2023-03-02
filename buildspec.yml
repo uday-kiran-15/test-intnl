@@ -34,4 +34,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist/test-intnl*
+  base-directory: dist/$BUCKET_NAME*
