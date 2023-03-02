@@ -22,7 +22,7 @@ phases:
     commands:
       - echo installing dependencies...
       - npm i -g @angular/cli@8.3.25
-      - npm i npm
+      - npm i 
   build:
     commands:
       # - echo testing...
