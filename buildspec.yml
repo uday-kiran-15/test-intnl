@@ -1,7 +1,14 @@
-version: 0.1
+version: 0.2
+
+env:
+    variables:
+        S3_BUCKET:"{{s3_bucket_url}}"
+        BUILD_FOLDER:"dist"
 
 phases:
   install:
+    runtime-versions:
+        nodejs: 14
   #   commands:
   #     - echo installing nodejs...
   #     # - curl -sL https://deb.nodesource.com/setup_12.x | bash -
@@ -24,4 +31,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist/test-intnl
+  base-directory: dist*
