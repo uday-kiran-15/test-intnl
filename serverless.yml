@@ -1,0 +1,22 @@
+service: test-intnl
+
+# plugins:
+#   - serverless-s3-sync
+
+custom:
+  stages:
+    - dev
+    - qa
+    - prod
+
+provider:
+  name: aws
+  region: us-west-2
+  stage: ${opt:stage, 'dev'} # Set the default stage used. Default is dev
+  deploymentBucket:
+    name: ${opt:s3BucketName, 'dev-test-intnl'}
+  environment:
+    USERNAME: /${self:provider.stage}/user-name
+    NAME: /${self:provider.stage}/name
+    region: ${self:provider.region}
+    STAGE: ${self:provider.stage}

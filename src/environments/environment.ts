@@ -1,9 +1,17 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import { paramStore } from 'aws-param-store';
+
+
+const user = paramStore.getParameterSync(process.env.USERNAME, { region: process.env.region }).Value;
+const cname = paramStore.getParameterSync(process.env.NAME, { region: process.env.region }).Value;
 
 export const environment = {
-  production: false
+  production: false,
+  username: user,
+  name: cname
+
 };
 
 /*

@@ -7,7 +7,18 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:deploy:localhost": "npm run build:localhost",    
+    "build:deploy:dev": "npm run build:dev && npm run deploy:dev",
+    "build:deploy:qa": "npm run build:qa && npm run deploy:qa",
+    "build:deploy:prod": "npm run build:prod && npm run deploy:prod",
+    "build:localhost": "ng serve --port 8080 --proxy-config proxy.conf.json --base-href /",
+    "build:dev": "ng build --configuration=dev",
+    "build:qa": "ng build --configuration=qa",
+    "build:prod": "ng build --configuration=prod",
+    "deploy:dev": "serverless deploy --s3BucketName dev-test-intnl --stage dev",
+    "deploy:qa": "serverless deploy --s3BucketName qa-test-intnl --stage qa",
+    "deploy:prod": "serverless deploy --s3BucketName test-intnl --stage prod"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +30,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "aws-param-store": "^3.2.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

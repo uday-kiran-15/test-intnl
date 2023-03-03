@@ -8,17 +8,6 @@ env:
 
 phases:
   install:
-  #   runtime-versions:
-  #       nodejs: 14
-  #   commands:
-  #     - echo installing nodejs...
-  #     # - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-  #     - apt-get install -y nodejs
-  #     - echo installing yarn...
-  #     - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-  #     - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-  #     - apt install --no-install-recommends yarn
-  # pre_build:
     commands:
       - echo installing dependencies...
       - npm i 
@@ -27,9 +16,11 @@ phases:
     commands:
       # - echo testing...
       - echo building...
-      - ng build 
+      - ng build --configuration $stage
       - echo removing bucket objects
       - aws s3 rm s3://$BUCKET_NAME/ --recursive
+      - echo deploy
+      - npm run deploy:$stage
 artifacts:
   files:
     - "**/*"

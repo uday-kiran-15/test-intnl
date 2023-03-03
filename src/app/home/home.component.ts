@@ -4,6 +4,7 @@ import { from } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 import {Location} from '@angular/common';
 import * as translateData from '../../locale/constData';
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,8 @@ data: any;
   email!: string;
   password!: string;
   language = 'en';
+  username1 = environment.username;
+  name1 = environment.name;
   constructor(private route: ActivatedRoute, private router: Router, private location: Location) {
     this.language = this.route.snapshot.paramMap.get('lang') || 'en';
    }
