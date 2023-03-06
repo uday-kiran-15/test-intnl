@@ -15,10 +15,7 @@
     "build:localhost": "ng serve --port 8080 --proxy-config proxy.conf.json --base-href /",
     "build:dev": "ng build --configuration=dev",
     "build:qa": "ng build --configuration=qa",
-    "build:prod": "ng build --configuration=prod",
-    "deploy:dev": "serverless deploy --s3BucketName dev-test-intnl --stage dev",
-    "deploy:qa": "serverless deploy --s3BucketName qa-test-intnl --stage qa",
-    "deploy:prod": "serverless deploy --s3BucketName test-intnl --stage prod"
+    "build:prod": "ng build --configuration=prod"
   },
   "private": true,
   "dependencies": {
