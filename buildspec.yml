@@ -19,8 +19,6 @@ phases:
       - ng build --configuration $stage
       - echo removing bucket objects
       - aws s3 rm s3://$BUCKET_NAME/ --recursive
-      # - echo deploy
-      # - npm run deploy:$stage
 artifacts:
   files:
     - "**/*"
