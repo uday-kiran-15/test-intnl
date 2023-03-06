@@ -19,9 +19,8 @@ phases:
       - ng build --configuration $stage
       # - echo removing bucket objects
       # - aws s3 rm s3://$BUCKET_NAME/ --recursive
-  deploy:
-    commands: 
-      -deploy start...
+  post_build:
+    commands:
       - aws s3 sync dist/ s3://$BUCKET_NAME/
       - |
         if [[ "$CODEBUILD_BUILD_SUCCEEDING" -eq 1 ]]; then
